@@ -125,7 +125,7 @@ attributes:
 
 
   edge_cidr:
-    value: '10.88.88.9'
+    value: '10.88.88.0/24'
     label: 'Edge Router CIDR'
     description: 'Edge Network CIDR'
     weight: 20
