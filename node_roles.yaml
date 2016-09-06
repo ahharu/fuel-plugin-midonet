@@ -25,3 +25,5 @@ midonet-analytics:
   weight: 200
   conflicts:
     - controller
+    - midonet-gw
+    - nsdb

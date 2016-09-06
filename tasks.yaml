@@ -5,6 +5,7 @@
   - compute
   - nsdb
   - midonet-gw
+  - midonet-analytics
   stage: pre_deployment
   type: shell
   parameters:
@@ -12,12 +13,13 @@
     timeout: 1440
 
 # Override neutron params
-- role: 
+- role:
   - primary-controller
   - controller
   - compute
   - nsdb
   - midonet-gw
+  - midonet-analytics
   stage: pre_deployment
   type: puppet
   parameters:

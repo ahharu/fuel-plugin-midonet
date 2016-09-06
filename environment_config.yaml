@@ -98,7 +98,7 @@ attributes:
   mem_manager_servername:
     value: ''
     label: "Servername for MEM manager"
-    description: "Servername for MEM manager"
+    description: "Servername for MEM manager. If not defined FQDN will be used"
     type: "text"
     weight: 13
     restrictions:
