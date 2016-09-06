@@ -19,7 +19,7 @@ attributes:
     type: "checkbox"
 
   mem_use_ssl:
-    value: 'false'
+    value: false
     label: "Use SSL for MEM Manager"
     description: "Password for Midokura Enterprise MidoNet (MEM) repository"
     type: "checkbox"
