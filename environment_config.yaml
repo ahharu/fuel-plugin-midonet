@@ -190,7 +190,7 @@ attributes:
         action: "hide"
 
   bgp_neighbors:
-    value: '10.88.88.2-12345-10.88.88.1-65535'
+    value: ['10.88.88.2-12345-10.88.88.1-65535']
     label: 'BGP routing subnet'
     description: 'List of BGP peers. In the form of <ip>-<local_as>-<remote_ip>-<remote-net>'
     weight: 34
