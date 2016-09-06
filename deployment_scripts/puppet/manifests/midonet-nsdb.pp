@@ -20,13 +20,13 @@ $nsdb_map         = get_nodes_hash_by_roles($network_metadata, ['nsdb'])
 $zoo_hash         = generate_zookeeper_hash($nsdb_map)
 $nsdb_mgmt_map    = get_node_to_ipaddr_map_by_network_role($nsdb_map, 'management')
 
-class {'::zookeeper':
-  servers   => $zoo_hash['servers'],
-  id        => $zoo_hash["${::fqdn}"]['id'],
-  client_ip => $zoo_hash["${::fqdn}"]['host'],
+class { '::midonet_openstack::profile::zookeeper::midozookeeper':
+  zk_servers => $zoo_hash['servers'],
+  id         => $zoo_hash["${::fqdn}"]['id'],
+  client_ip  => $zoo_hash["${::fqdn}"]['host'],
 }
 
-class {'::cassandra':
+class {'::midonet_openstack::profile::cassandra::midocassandra':
   seeds        => values($nsdb_mgmt_map),
   seed_address => $nsdb_mgmt_map["${::hostname}"]
 }
@@ -41,37 +41,37 @@ firewall {'500 zookeeper ports':
 }
 
 firewall {'501 zookeeper ports':
-  port => '2181',
-  proto => 'tcp',
-  action => 'accept',
+  port    => '2181',
+  proto   => 'tcp',
+  action  => 'accept',
   require => Class['::zookeeper']
 }
 
 firewall {'550 cassandra ports':
-  port => '9042',
-  proto => 'tcp',
-  action => 'accept',
+  port    => '9042',
+  proto   => 'tcp',
+  action  => 'accept',
   require => Class['::cassandra']
 }
 
 firewall {'551 cassandra ports':
-  port => '7000',
-  proto => 'tcp',
-  action => 'accept',
+  port    => '7000',
+  proto   => 'tcp',
+  action  => 'accept',
   require => Class['::cassandra']
 }
 
 firewall {'552 cassandra ports':
-  port => '7199',
-  proto => 'tcp',
-  action => 'accept',
+  port    => '7199',
+  proto   => 'tcp',
+  action  => 'accept',
   require => Class['::cassandra']
 }
 
 firewall {'553 cassandra ports':
-  port => '9160',
-  proto => 'tcp',
-  action => 'accept',
+  port    => '9160',
+  proto   => 'tcp',
+  action  => 'accept',
   require => Class['::cassandra']
 }
 

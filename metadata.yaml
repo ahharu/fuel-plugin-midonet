@@ -1,6 +1,6 @@
 name: midonet-fuel-plugin
 title: Neutron Midonet plugin
-version: 4.0.1
+version: 4.0.2
 description: Enable to use plugin Midonet for Neutron
 fuel_version: ['9.0']
 is_hotpluggable: false
@@ -12,7 +12,7 @@ releases:
     deployment_scripts_path: deployment_scripts/
     repository_path: repositories/ubuntu
 
-package_version: '4.0.0'
+package_version: '4.0.2'
 licenses: ['Apache 2.0']
 authors: ['Lucas Eznarriaga <lucas@midokura.com>, Midokura',
           'Jaume Devesa <jaume@midokura.com>, Midokura',
