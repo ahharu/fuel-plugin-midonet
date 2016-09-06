@@ -190,7 +190,7 @@ attributes:
         action: "hide"
 
   bgp_neighbors:
-    value: '1'
+    value: '10.88.88.2-12345-10.88.88.1-65535'
     label: 'BGP Peers'
     description: 'List of BGP peers. In the form of <ip>-<local_as>-<remote_ip>-<remote-net> . If more than one peer, comma separate them like 1.1.1.1-11111-1.1.1.1-11111,1.1.1.1-11111-1.1.1.1-11111'
     weight: 34
