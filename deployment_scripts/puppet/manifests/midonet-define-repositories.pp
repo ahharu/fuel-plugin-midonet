@@ -47,7 +47,8 @@ apt::source {'midonet':
     },
     include  => {
           'src' => false,
-  } ->
+  }
+} ->
 
 apt::source {'midonet-openstack-integration':
     comment     => 'Midonet apt plugin repository',

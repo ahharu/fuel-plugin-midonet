@@ -106,7 +106,7 @@ class { '::neutron::server':
   database_connection     => "mysql+pymysql://neutron:${neutron_db_password}@${service_endpoint}/neutron?&read_timeout=60",
   database_max_retries    => -1,
 
-  service_providers       => ['LOADBALANCER:Midonet:midonet.neutron.services.loadbalancer.driver.MidonetLoadbalancerDriver:default']
+  service_providers       => ['LOADBALANCER:Midonet:midonet.neutron.services.loadbalancer.driver.MidonetLoadbalancerDriver:default'],
 
   agent_down_time         => 15,
 
