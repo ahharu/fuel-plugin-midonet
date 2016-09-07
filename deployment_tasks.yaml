@@ -17,7 +17,11 @@
   tasks:
   - logging
   - hiera
+  - setup_repositories
+  - fuel_pkgs
   - globals
+  - tools
+  - logging
   - netconfig-midonet
 
 - id: midonet-gw

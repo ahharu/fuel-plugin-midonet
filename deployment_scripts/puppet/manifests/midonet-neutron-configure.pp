@@ -37,7 +37,8 @@ $verbose                = pick($openstack_network_hash['verbose'], hiera('verbos
 # Unfortunately, core_plugin in the 'openstack-network-common-config'
 # task is hardcoded. The core_plugin value for midonet is overrided
 # in hiera file, so running again class{'::neutron'} should modify
-# the core_plugin value in /etc/neutron/neutron.conf
+# the core_plugin value in /etc/neutron/neutron.conf.
+# Same goes for service_plugins
 #
 # Hoping that Fuel will make the core plugin configurable and we
 # can remove this step
@@ -48,7 +49,6 @@ class {'::neutron':
   use_stderr              => $use_stderr,
   log_facility            => 'LOG_USER',
   base_mac                => 'fa:16:3e:00:00:00',
-  service_plugins         => [],
   allow_overlapping_ips   => true,
   mac_generation_retries  => '32',
   dhcp_lease_duration     => '600',
