@@ -44,4 +44,6 @@ rm -rf /tmp/puppet-neutron
 rm -rf /tmp/puppet-midonet
 rm -rf /tmp/puppet-midonet_openstack
 
+cd /tmp
+
 gem install faraday  # This is needed by the midonet providers
