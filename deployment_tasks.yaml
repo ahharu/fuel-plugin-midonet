@@ -1,40 +1,33 @@
-#
-# PRE DEPLOYMENT
-#
-
 # Install the MidoNet dependencies
-- role:
+- id: install_dep
+  role:
   - primary-controller
   - controller
   - compute
   - nsdb
   - midonet-gw
   - midonet-analytics
-  stage: pre_deployment
   type: shell
-  requires:
-  - post_deployment_start
-  required_for:
-  - post_deployment_end
-  id: install_midonet_puppet_modules
+  requires: [pre_deployment_start]
+  required_for: [pre_deployment_end]
+  version: 2.0.0
   parameters:
     cmd: bash install_midonet_puppet_modules.sh
     timeout: 1440
 
 # Override neutron params
-- role:
+- id: neutron-override
+  role:
   - primary-controller
   - controller
   - compute
   - nsdb
   - midonet-gw
   - midonet-analytics
-  requires:
-  - post_deployment_start
-  required_for:
-  - post_deployment_end
   type: puppet
-  id: override_hiera
+  requires: [pre_deployment_start]
+  required_for: [pre_deployment_end]
+  version: 2.0.0
   parameters:
     puppet_manifest: puppet/manifests/midonet-override-hiera.pp
     puppet_modules: "puppet/modules/:/etc/puppet/modules/"
