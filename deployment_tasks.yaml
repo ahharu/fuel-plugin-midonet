@@ -8,7 +8,7 @@
   - midonet-gw
   - midonet-analytics
   type: shell
-  requires: [pre_deployment_start]
+  requires: [pre_deployment_start,fuel_pkgs]
   required_for: [pre_deployment_end]
   version: 2.0.0
   parameters:
@@ -25,7 +25,7 @@
   - midonet-gw
   - midonet-analytics
   type: puppet
-  requires: [pre_deployment_start]
+  requires: [pre_deployment_start,fuel_pkgs]
   required_for: [pre_deployment_end]
   version: 2.0.0
   parameters:
