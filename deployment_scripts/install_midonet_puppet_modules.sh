@@ -15,6 +15,9 @@ puppet module install elasticsearch-logstash --version=0.6.4 --ignore-dependenci
 puppet module install electrical-file_concat --version=1.0.1 --ignore-dependencies --force
 puppet module install richardc-datacat --version=0.6.2 --ignore-dependencies --force
 
+#install git
+apt-get install -y git
+
 cd /tmp
 git clone https://github.com/openstack/puppet-neutron.git
 cd puppet-neutron
