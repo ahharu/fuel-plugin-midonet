@@ -8,8 +8,8 @@
   - midonet-gw
   - midonet-analytics
   type: shell
-  requires: [pre_deployment_start,setup_repositories,fuel_pkgs]
-  required_for: [pre_deployment_end]
+  requires: [deploy_start,setup_repositories]
+  required_for: [fuel_pkgs]
   version: 2.0.0
   parameters:
     cmd: bash install_midonet_puppet_modules.sh
