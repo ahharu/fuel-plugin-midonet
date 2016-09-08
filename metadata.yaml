@@ -1,6 +1,6 @@
 name: midonet-fuel-plugin
 title: Neutron Midonet plugin
-version: 4.0.40
+version: 4.0.41
 description: Enable to use plugin Midonet for Neutron
 fuel_version: ['9.0']
 is_hotpluggable: false
