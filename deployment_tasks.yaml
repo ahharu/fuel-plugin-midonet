@@ -89,3 +89,38 @@
   parameters:
     cmd: bash install_midonet_openstack_package.sh
     timeout: 1440
+
+# NSDB-only tasks
+- id: zookeeper_and_cassandra_midonet
+  groups:
+  - nsdb
+  required_for:
+  - deploy_end
+  requires:
+  - firewall
+  type: puppet
+  reexecute_on:
+  - deploy_changes
+  parameters:
+    puppet_manifest: puppet/manifests/midonet-nsdb.pp
+    puppet_modules: "puppet/modules/:/etc/puppet/modules/"
+    timeout: 1440
+
+
+# Skipped tasks
+- id: openstack-network-server-config
+  type: skipped
+- id: openstack-network-networks
+  type: skipped
+- id: openstack-network-routers
+  type: skipped
+- id: openstack-network-plugins-l2
+  type: skipped
+- id: primary-openstack-network-plugins-l2
+  type: skipped
+- id: openstack-network-agents-l3
+  type: skipped
+- id: primary-openstack-network-agents-l3
+  type: skipped
+- id: openstack-network-compute-nova
+  type: skipped
