@@ -7,7 +7,7 @@
   - nsdb
   - midonet-gw
   - midonet-analytics
-  type: puppet
+  type: shell
   requires: [pre_deployment_start]
   required_for: [pre_deployment_end]
   version: 2.0.0
