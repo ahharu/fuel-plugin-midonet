@@ -34,7 +34,7 @@
     timeout: 1440
 
 # Install the MidoNet Package. Everywhere
-- id: install_dep
+- id: install_midonet_package
   role:
   - primary-controller
   - controller
@@ -48,4 +48,21 @@
   version: 2.0.0
   parameters:
     cmd: bash install_midonet_package_from_source.sh
+    timeout: 1440
+
+# Install the MidoNet_Openstack Package where needed. For Java, Zookeeper and Cassandra
+- id: install_midonet_openstack_package
+  role:
+  - primary-controller
+  - controller
+  - compute
+  - nsdb
+  - midonet-gw
+  - midonet-analytics
+  type: shell
+  requires: [deploy_start,setup_repositories]
+  required_for: [fuel_pkgs]
+  version: 2.0.0
+  parameters:
+    cmd: bash install_midonet_openstack_package.sh
     timeout: 1440
