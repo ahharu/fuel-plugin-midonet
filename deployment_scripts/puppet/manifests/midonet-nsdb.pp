@@ -20,15 +20,20 @@ $nsdb_map         = get_nodes_hash_by_roles($network_metadata, ['nsdb'])
 $zoo_hash         = generate_zookeeper_hash($nsdb_map)
 $nsdb_mgmt_map    = get_node_to_ipaddr_map_by_network_role($nsdb_map, 'management')
 
+class { '::midonet_openstack::profile::midojava::midojava':}
+contain '::midonet_openstack::profile::midojava::midojava'
+
 class { '::midonet_openstack::profile::zookeeper::midozookeeper':
   zk_servers => $zoo_hash['servers'],
   id         => $zoo_hash["${::fqdn}"]['id'],
   client_ip  => $zoo_hash["${::fqdn}"]['host'],
+  require    => File['/usr/java/default']
 }
 
 class {'::midonet_openstack::profile::cassandra::midocassandra':
   seeds        => values($nsdb_mgmt_map),
-  seed_address => $nsdb_mgmt_map["${::hostname}"]
+  seed_address => $nsdb_mgmt_map["${::hostname}"],
+  require      => File['/usr/java/default']
 }
 
 class { 'firewall': }
