@@ -1,3 +1,26 @@
+#
+# GROUPS
+#
+- id: nsdb
+  parameters:
+    strategy:
+      type: parallel
+  requires:
+  - deploy_start
+  required_for:
+  - controller
+  - primary-controller
+  - deploy_end
+  role:
+  - nsdb
+  type: group
+  tasks:
+  - logging
+  - hiera
+  - globals
+  - netconfig
+
+
 # Override neutron params
 - id: install_common_deps
   role:
