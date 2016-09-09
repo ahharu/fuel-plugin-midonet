@@ -81,8 +81,8 @@ firewall {'553 cassandra ports':
 }
 
 firewall {'554 cassandra ports':
-  port => '59471',
-  proto => 'tcp',
-  action => 'accept',
+  port    => '59471',
+  proto   => 'tcp',
+  action  => 'accept',
   require => Class['::cassandra']
 }
