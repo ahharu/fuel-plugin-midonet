@@ -97,10 +97,10 @@
   required_for:
   - deploy_end
   requires:
-  - firewall
   - deploy_start
   - install_midonet_openstack_package
   - install_midonet_package
+  - netconfig
   type: puppet
   reexecute_on:
   - deploy_changes
